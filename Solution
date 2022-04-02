@@ -1,0 +1,31 @@
+using System;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using System.Collections.Generic;
+using System.Collections;
+using System.Text.RegularExpressions;
+
+namespace AssociativeArrays
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string regex = @"\+(359)( |-)2\2\d{3}\2\d{4}\b";
+            string names = Console.ReadLine();
+
+            MatchCollection matches = Regex.Matches(names, regex);
+
+            List<string> result = new List<string>();
+
+            foreach (Match item in matches)
+            {
+                result.Add(item.Value);
+            }
+            Console.WriteLine(String.Join(", ", result));
+            
+        }
+    }
+}
